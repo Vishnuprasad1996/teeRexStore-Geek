@@ -1,0 +1,4 @@
+.app-bg-container {
+  display: flex;
+  flex-direction: column;
+}

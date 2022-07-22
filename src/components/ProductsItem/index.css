@@ -1,0 +1,53 @@
+.filter-prod-cont {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 40px;
+}
+
+.products-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 70vw;
+}
+
+.search-cont {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  background-color: transparent;
+  height: 30px;
+  width: 300px;
+  margin-right: 5px;
+  border: none;
+  border-bottom: #85888c solid 2px;
+  font-size: 16px;
+  font-family: "Roboto";
+  cursor: pointer;
+  outline: none;
+}
+
+.search-button {
+  height: 30px;
+  width: 35px;
+  background-color: #85888c;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.search-icon {
+  color: #ffffff;
+}
+
+.product-list-item-cont {
+  display: flex;
+  flex-wrap: wrap;
+}
