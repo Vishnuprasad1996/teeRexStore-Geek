@@ -11,10 +11,16 @@
 .filter-cont {
   display: flex;
   flex-direction: column;
-  width: 30vw;
+  width: 25vw;
   min-height: 100vh;
   padding-left: 20px;
   padding-top: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .filter-cont {
+    display: none;
+  }
 }
 
 .filter-each-item-cont {

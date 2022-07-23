@@ -17,8 +17,44 @@
   width: 10%;
 }
 
+@media screen and (max-width: 768px) {
+  .prod-cart-cont {
+    width: 40%;
+  }
+}
+
+.cart-cont {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
 .cart-icon {
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
   margin-left: 10px;
+  margin-right: 10px;
+}
+
+.cart-count-badge {
+  background-color: #e6f6ff;
+}
+
+.store-name {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.name-product {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .store-name {
+    font-size: 18px;
+  }
 }

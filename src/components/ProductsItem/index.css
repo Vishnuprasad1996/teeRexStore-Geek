@@ -2,6 +2,8 @@
   display: flex;
   min-height: 100vh;
   padding-top: 40px;
+  width: 100%;
+  justify-content: center;
 }
 
 .products-cont {
@@ -9,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  width: 70vw;
+  width: 80vw;
 }
 
 .search-cont {
@@ -30,6 +32,12 @@
   font-family: "Roboto";
   cursor: pointer;
   outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .search-input {
+    width: 200px;
+  }
 }
 
 .search-button {

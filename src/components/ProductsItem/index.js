@@ -3,12 +3,14 @@ import { BsSearch } from "react-icons/bs";
 
 import ProductCard from "../ProductCard";
 import ProductFilter from "../ProductFilter";
-import CartContext from "../../context/CartContext";
 
 import "./index.css";
 
 class ProductsItem extends Component {
-  state = { productList: [], searchInput: "", cartList: [] };
+  state = {
+    productList: [],
+    searchInput: "",
+  };
 
   componentDidMount() {
     this.getProductList();
@@ -28,22 +30,16 @@ class ProductsItem extends Component {
 
   getFilteredProductList = () => {
     const { productList, searchInput } = this.state;
-    const getProductList = productList.filter((eachList) =>
-      eachList.name.toLowerCase().includes(searchInput)
+    const getProductList = productList.filter(
+      (eachList) =>
+        eachList.name.toLowerCase().includes(searchInput) &&
+        eachList.color.includes("")
     );
     return getProductList;
   };
 
-  onClickCartButton = (id) => {
-    const { productList } = this.state;
-    const cartItem = productList.find((eachProduct) => eachProduct.id === id);
-    this.setState((prevState) => ({
-      cartList: { ...prevState.cartLIst, cartItem },
-    }));
-  };
-
   render() {
-    const { searchInput, cartList } = this.state;
+    const { searchInput } = this.state;
     const getProductList = this.getFilteredProductList();
 
     return (
@@ -64,11 +60,7 @@ class ProductsItem extends Component {
           </div>
           <ul className="product-list-item-cont">
             {getProductList.map((eachList) => (
-              <ProductCard
-                productDetails={eachList}
-                key={eachList.id}
-                onClickCartButton={this.onClickCartButton}
-              />
+              <ProductCard productDetails={eachList} key={eachList.id} />
             ))}
           </ul>
         </div>
