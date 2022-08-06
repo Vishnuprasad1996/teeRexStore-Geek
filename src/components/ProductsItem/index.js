@@ -10,6 +10,10 @@ class ProductsItem extends Component {
   state = {
     productList: [],
     searchInput: "",
+    filterColor: "",
+    filterGender: "",
+    filterPrice: "",
+    filterType: "",
   };
 
   componentDidMount() {
@@ -24,16 +28,51 @@ class ProductsItem extends Component {
     this.setState({ productList: data });
   };
 
+  clearFilterClicked = () => {
+    this.setState({
+      filterColor: "",
+      filterGender: "",
+      filterPrice: 0,
+      filterType: "",
+    });
+  };
+
   onEnterSearchInput = (event) => {
     this.setState({ searchInput: event.target.value });
   };
 
+  onChangeFilterColor = (value) => {
+    this.setState({ filterColor: value });
+  };
+
+  onChangeFilterGender = (value) => {
+    this.setState({ filterGender: value });
+  };
+
+  onChangeFilterPrice = (value) => {
+    this.setState({ filterPrice: value });
+  };
+
+  onChangeFilterType = (value) => {
+    this.setState({ filterType: value });
+  };
+
   getFilteredProductList = () => {
-    const { productList, searchInput } = this.state;
+    const {
+      productList,
+      searchInput,
+      filterColor,
+      filterGender,
+      filterPrice,
+      filterType,
+    } = this.state;
     const getProductList = productList.filter(
       (eachList) =>
         eachList.name.toLowerCase().includes(searchInput) &&
-        eachList.color.includes("")
+        eachList.color.includes(filterColor) &&
+        eachList.gender.includes(filterGender) &&
+        eachList.type.includes(filterType) &&
+        eachList.price >= filterPrice
     );
     return getProductList;
   };
@@ -44,7 +83,13 @@ class ProductsItem extends Component {
 
     return (
       <div className="filter-prod-cont">
-        <ProductFilter />
+        <ProductFilter
+          onChangeFilterColor={this.onChangeFilterColor}
+          onChangeFilterGender={this.onChangeFilterGender}
+          onChangeFilterPrice={this.onChangeFilterPrice}
+          onChangeFilterType={this.onChangeFilterType}
+          clearFilterClicked={this.clearFilterClicked}
+        />
         <div className="products-cont">
           <div className="search-cont">
             <input
